@@ -160,7 +160,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
         jPanel2.setFont(new java.awt.Font("NSimSun", 0, 12)); // NOI18N
 
         ManageCategory.setBackground(new java.awt.Color(255, 255, 153));
-        ManageCategory.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
+        ManageCategory.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         ManageCategory.setText("Manage Category");
         ManageCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageCategory.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,7 +175,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
         });
 
         ManageClients.setBackground(new java.awt.Color(255, 255, 153));
-        ManageClients.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
+        ManageClients.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         ManageClients.setText("Manage Clients");
         ManageClients.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageClients.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,7 +190,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
         });
 
         ManageEmployee.setBackground(new java.awt.Color(255, 255, 153));
-        ManageEmployee.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
+        ManageEmployee.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         ManageEmployee.setText("Manage Employees");
         ManageEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,7 +205,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
         });
 
         ManageChecks.setBackground(new java.awt.Color(255, 255, 153));
-        ManageChecks.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
+        ManageChecks.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         ManageChecks.setText("Manage Checks");
         ManageChecks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageChecks.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,7 +220,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
         });
 
         ManageProducts1.setBackground(new java.awt.Color(255, 255, 153));
-        ManageProducts1.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
+        ManageProducts1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         ManageProducts1.setText("Manage Store Products");
         ManageProducts1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageProducts1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -235,7 +235,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
         });
 
         jButton1.setBackground(new java.awt.Color(255, 255, 153));
-        jButton1.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jButton1.setText("Print");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -271,7 +271,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
                 .addComponent(ManageChecks, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
