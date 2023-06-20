@@ -27,7 +27,7 @@ import login.Login;
  */
 public class ManageCategoryFrame extends javax.swing.JFrame {
     
-    Connection con = MyConnection.getConnection();
+    Connection con;
 
     /**
      * Creates new form ManageCategoryFrame
@@ -38,6 +38,7 @@ public class ManageCategoryFrame extends javax.swing.JFrame {
     }
     
     private void init(){
+        con = MyConnection.getConnection();
         DefaultTableModel dm = (DefaultTableModel)jTable1.getModel();
         while(dm.getRowCount() > 0) {
             dm.removeRow(0);
@@ -56,6 +57,7 @@ public class ManageCategoryFrame extends javax.swing.JFrame {
                 dm.addRow(new Object[]{rs.getString("id"), 
                     rs.getString("name")});
                 }
+            con.close();
         } catch (SQLException ex) {
             Logger.getLogger(ManageCategoryFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -215,6 +217,7 @@ public class ManageCategoryFrame extends javax.swing.JFrame {
 
     // EDIT
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        con = MyConnection.getConnection();
         PreparedStatement ps;
         ResultSet rs;
 
@@ -233,7 +236,7 @@ public class ManageCategoryFrame extends javax.swing.JFrame {
                 ps.setString(2, oldNameCategory);
 
                 ps.executeUpdate();
-
+                con.close();
             } catch (SQLException ex) {
                 Logger.getLogger(ManageCategoryFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -246,6 +249,7 @@ public class ManageCategoryFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        con = MyConnection.getConnection();
         int row = -1;
         row = jTable1.getSelectedRow();
         boolean exists = false;
@@ -258,6 +262,7 @@ public class ManageCategoryFrame extends javax.swing.JFrame {
             try {
                 ps = con.prepareStatement("DELETE FROM category WHERE id = " + id);
                 ps.executeUpdate();
+                con.close();
             } catch (SQLException ex) {
                 Logger.getLogger(ManageCategoryFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -271,6 +276,7 @@ public class ManageCategoryFrame extends javax.swing.JFrame {
 
     // ADD
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        con = MyConnection.getConnection();
         String categoryName = jTextField1.getText();
         PreparedStatement ps;
         ResultSet rs;

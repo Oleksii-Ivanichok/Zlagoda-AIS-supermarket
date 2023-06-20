@@ -83,7 +83,7 @@ public class AddNewStoreProduct extends javax.swing.JFrame {
             while (rs.next()) {
                 row = rs.getInt(1);
             }
-            con.close();
+//            con.close();
         } catch (SQLException ex) {
             Logger.getLogger(AddNewStoreProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -189,6 +189,11 @@ public class AddNewStoreProduct extends javax.swing.JFrame {
         jDateChooser1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(255, 255, 153));
         jButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
@@ -333,6 +338,10 @@ public class AddNewStoreProduct extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -26,7 +26,7 @@ import login.Login;
  */
 public class CreateCheck extends javax.swing.JFrame {
 
-     Connection con = MyConnection.getConnection();
+    Connection con = MyConnection.getConnection();
     String clientCard;
     int clientDiscount;
     static int id;
@@ -87,7 +87,7 @@ public class CreateCheck extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        makeCheck = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jSpinner1 = new javax.swing.JSpinner();
@@ -214,17 +214,12 @@ public class CreateCheck extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 153));
-        jButton5.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        jButton5.setText("Complete");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        makeCheck.setBackground(new java.awt.Color(255, 255, 153));
+        makeCheck.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        makeCheck.setText("Complete");
+        makeCheck.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
-            }
-        });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                makeCheckClick(evt);
             }
         });
 
@@ -325,7 +320,7 @@ public class CreateCheck extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(makeCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -390,7 +385,7 @@ public class CreateCheck extends javax.swing.JFrame {
                             .addComponent(jButton3)
                             .addComponent(jButton4))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5))
+                        .addComponent(makeCheck))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -429,10 +424,6 @@ public class CreateCheck extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -650,8 +641,11 @@ public class CreateCheck extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        if (checkCreated) JOptionPane.showMessageDialog(this, "Check already created", "Check create fail",2);
+    private void makeCheckClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_makeCheckClick
+        if (checkCreated) 
+        {
+            JOptionPane.showMessageDialog(this, "Check already created", "Check create fail",2);
+        }
         else {
           
         LocalDateTime now = LocalDateTime.now();
@@ -752,7 +746,7 @@ public class CreateCheck extends javax.swing.JFrame {
         }
         
         
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_makeCheckClick
 
     /**
      * @param args the command line arguments
@@ -797,7 +791,6 @@ public class CreateCheck extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -818,5 +811,6 @@ public class CreateCheck extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton makeCheck;
     // End of variables declaration//GEN-END:variables
 }
