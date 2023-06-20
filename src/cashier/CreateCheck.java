@@ -26,7 +26,7 @@ import login.Login;
  */
 public class CreateCheck extends javax.swing.JFrame {
 
-    Connection con = MyConnection.getConnection();
+    Connection con;
     String clientCard;
     int clientDiscount;
     static int id;
@@ -42,6 +42,7 @@ public class CreateCheck extends javax.swing.JFrame {
 
     
     private void init() {
+        con = MyConnection.getConnection();
         jComboBox1.addItem("All");
         try{
            
@@ -55,6 +56,7 @@ public class CreateCheck extends javax.swing.JFrame {
             for (String str: categories) {
                 jComboBox1.addItem(str);
             }
+            con.close();
            
                     
         } catch (SQLException ex) {
@@ -434,6 +436,7 @@ public class CreateCheck extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        con = MyConnection.getConnection();
         DefaultTableModel dm = (DefaultTableModel)jTable3.getModel();
         while(dm.getRowCount() > 0) {
             dm.removeRow(0);
@@ -498,7 +501,8 @@ public class CreateCheck extends javax.swing.JFrame {
                     rs.getString("category_name"),
                     rs.getString("expiration_date")});
             }
-            
+            con.close();
+
         } catch (SQLException ex) {
             Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -506,73 +510,82 @@ public class CreateCheck extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        int row = -1;
-        row = jTable3.getSelectedRow();
-        boolean exists = false;
-        if (row == -1) {
-            JOptionPane.showMessageDialog(this, "Product not selected", "Add falied",2);
-        }
-        else {
-            for (int k = 0; k < jTable2.getRowCount(); k++) {
-                String id = String.valueOf(jTable2.getValueAt(k, 0));
-                if (id.equals(String.valueOf(jTable3.getValueAt(row, 0)))) {
-                   
-                    int quantity = Integer.parseInt(String.valueOf(jSpinner1.getValue()));
-                    int existingQuantity = Integer.parseInt(String.valueOf(jTable2.getValueAt(k, 4)));
+        try {
+            con = MyConnection.getConnection();
+            int row = -1;
+            row = jTable3.getSelectedRow();
+            boolean exists = false;
+            if (row == -1) {
+                JOptionPane.showMessageDialog(this, "Product not selected", "Add falied",2);
+            }
+            else {
+                for (int k = 0; k < jTable2.getRowCount(); k++) {
+                    String id = String.valueOf(jTable2.getValueAt(k, 0));
+                    if (id.equals(String.valueOf(jTable3.getValueAt(row, 0)))) {
+                        
+                        int quantity = Integer.parseInt(String.valueOf(jSpinner1.getValue()));
+                        int existingQuantity = Integer.parseInt(String.valueOf(jTable2.getValueAt(k, 4)));
+                        
+                        if (quantity > Integer.parseInt(jTable3.getValueAt(row,4).toString())) {
+                            JOptionPane.showMessageDialog(this, "Quntity is greater then available", "Quantity error",2);
+                        }
+                        else {
+                            jTable2.setValueAt(quantity + existingQuantity, k, 4);
+                            int discount = Integer.parseInt(jTable3.getValueAt(row,3).toString());
+                            double price = Double.parseDouble(jTable3.getValueAt(row,2).toString());
+                            double total = ((quantity + existingQuantity) * price * (100-(discount + clientDiscount))) / 100;
+                            jTable2.setValueAt(total, k, 5);
+                            
+                        }
+                        exists = true;
+                    }
+                }
+                
+                if (!exists) {
                     
+                    
+                    int discount = Integer.parseInt(jTable3.getValueAt(row,3).toString());
+                    double price = Double.parseDouble(jTable3.getValueAt(row,2).toString());
+                    int quantity = Integer.parseInt(String.valueOf(jSpinner1.getValue()));
                     if (quantity > Integer.parseInt(jTable3.getValueAt(row,4).toString())) {
                         JOptionPane.showMessageDialog(this, "Quntity is greater then available", "Quantity error",2);
                     }
                     else {
-                        jTable2.setValueAt(quantity + existingQuantity, k, 4);
-                        int discount = Integer.parseInt(jTable3.getValueAt(row,3).toString());
-                        double price = Double.parseDouble(jTable3.getValueAt(row,2).toString());
-                        double total = ((quantity + existingQuantity) * price * (100-(discount + clientDiscount))) / 100;
-                        jTable2.setValueAt(total, k, 5);
-
+                        double total = (quantity * price * (100-(discount + clientDiscount))) / 100;
+                        DefaultTableModel dm = (DefaultTableModel)jTable2.getModel();
+                        dm.addRow(new Object[]{jTable3.getValueAt(row, 0),
+                            jTable3.getValueAt(row, 1),
+                            price,
+                            discount + clientDiscount,
+                            quantity,
+                            total
+                        });
+                        int existingQuantity = Integer.parseInt(jTable3.getValueAt(row,4).toString());
+                        jTable3.setValueAt(existingQuantity - quantity, row, 4);
+                        
                     }
-                exists = true;
                 }
-            }
-            
-            if (!exists) {
+                double total = 0;
+                for (int i = 0; i < jTable2.getRowCount(); i++) {
+                    total += Double.parseDouble(jTable2.getValueAt(i,5).toString());
+                }
+                jLabel6.setText(String.valueOf(total));
+                jLabel10.setText(String.valueOf(total*0.2));
+                checkCreated = false;
                 
-            
-            int discount = Integer.parseInt(jTable3.getValueAt(row,3).toString());
-            double price = Double.parseDouble(jTable3.getValueAt(row,2).toString());
-            int quantity = Integer.parseInt(String.valueOf(jSpinner1.getValue()));
-            if (quantity > Integer.parseInt(jTable3.getValueAt(row,4).toString())) {
-                JOptionPane.showMessageDialog(this, "Quntity is greater then available", "Quantity error",2);
-            }
-            else {
-                double total = (quantity * price * (100-(discount + clientDiscount))) / 100;
-            DefaultTableModel dm = (DefaultTableModel)jTable2.getModel();
-            dm.addRow(new Object[]{jTable3.getValueAt(row, 0),
-                jTable3.getValueAt(row, 1), 
-                price, 
-                discount + clientDiscount,
-                quantity,
-                total
-                });
-            int existingQuantity = Integer.parseInt(jTable3.getValueAt(row,4).toString());
-            jTable3.setValueAt(existingQuantity - quantity, row, 4);
                 
             }
-            }
-            double total = 0;
-            for (int i = 0; i < jTable2.getRowCount(); i++) {
-                total += Double.parseDouble(jTable2.getValueAt(i,5).toString());
-            }
-            jLabel6.setText(String.valueOf(total));
-            jLabel10.setText(String.valueOf(total*0.2));
-            checkCreated = false;
-            
-            
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-       if (clientAdded) JOptionPane.showMessageDialog(this, "Client card already added", "Client added",2);
+        con = MyConnection.getConnection();
+        if (clientAdded) JOptionPane.showMessageDialog(this, "Client card already added", "Client added",2);
        else {
            try {
             PreparedStatement ps;
@@ -588,6 +601,7 @@ public class CreateCheck extends javax.swing.JFrame {
             }else {
                 JOptionPane.showMessageDialog(this, "Client card not found", "Client init falied",2);
             }
+            con.close();
          
         } catch (SQLException ex) {
             Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
@@ -599,141 +613,155 @@ public class CreateCheck extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        DefaultTableModel dm1 = (DefaultTableModel)jTable2.getModel();
-                while(dm1.getRowCount() > 0) {
-                    dm1.removeRow(0);
-                }
-                DefaultTableModel dm2 = (DefaultTableModel)jTable3.getModel();
-                
-                while(dm2.getRowCount() > 0) {
-                    dm2.removeRow(0);
-                }
-                clientAdded = false;
-                clientCard = null;
-        double total = 0;
-            for (int i = 0; i < jTable2.getRowCount(); i++) {
-                total += Double.parseDouble(jTable2.getValueAt(i,5).toString());
+        try {
+            con = MyConnection.getConnection();
+            DefaultTableModel dm1 = (DefaultTableModel)jTable2.getModel();
+            while(dm1.getRowCount() > 0) {
+                dm1.removeRow(0);
             }
-            jLabel6.setText(String.valueOf(total));
-            jLabel10.setText(String.valueOf(total*0.2));
+            DefaultTableModel dm2 = (DefaultTableModel)jTable3.getModel();
             
-        checkCreated = false;
-    }//GEN-LAST:event_jButton4MouseClicked
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        DefaultTableModel dm = (DefaultTableModel)jTable2.getModel();
-        int row = -1;
-        row = jTable2.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(this, "Product not selected", "Delete falied",2);
-        }
-        else {
-            dm.removeRow(row);
-            checkCreated = false;
+            while(dm2.getRowCount() > 0) {
+                dm2.removeRow(0);
+            }
+            clientAdded = false;
+            clientCard = null;
             double total = 0;
             for (int i = 0; i < jTable2.getRowCount(); i++) {
                 total += Double.parseDouble(jTable2.getValueAt(i,5).toString());
             }
             jLabel6.setText(String.valueOf(total));
             jLabel10.setText(String.valueOf(total*0.2));
+            
             checkCreated = false;
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        try {
+            con = MyConnection.getConnection();
+            DefaultTableModel dm = (DefaultTableModel)jTable2.getModel();
+            int row = -1;
+            row = jTable2.getSelectedRow();
+            if (row == -1) {
+                JOptionPane.showMessageDialog(this, "Product not selected", "Delete falied",2);
+            }
+            else {
+                dm.removeRow(row);
+                checkCreated = false;
+                double total = 0;
+                for (int i = 0; i < jTable2.getRowCount(); i++) {
+                    total += Double.parseDouble(jTable2.getValueAt(i,5).toString());
+                }
+                jLabel6.setText(String.valueOf(total));
+                jLabel10.setText(String.valueOf(total*0.2));
+                checkCreated = false;
+            }
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void makeCheckClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_makeCheckClick
-        if (checkCreated) 
-        {
-            JOptionPane.showMessageDialog(this, "Check already created", "Check create fail",2);
-        }
-        else {
-          
-        LocalDateTime now = LocalDateTime.now();
-        String nowstr = String.valueOf(now);
-        String idCheck = null;
         try {
-            con.close();
             con = MyConnection.getConnection();
-            PreparedStatement ps;
-                ps = con.prepareStatement("INSERT INTO 'check' (fk_employee, fk_client, date, total, vat) VALUES(?, ?, ?, ?, ?)");
-                ps.setString(1,String.valueOf(id));
-                ps.setString(2, clientCard);
-                ps.setString(3, nowstr);
-                ps.setString(4, jLabel6.getText());
-                ps.setString(5,jLabel10.getText());
-                int row = ps.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Check created");
-                checkCreated = true;
+            if (checkCreated)
+            {
+                JOptionPane.showMessageDialog(this, "Check already created", "Check create fail",2);
+            }
+            else {
                 
-              
-            } catch (SQLException ex) {
-                Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
-            }
-         
-         try {
-             PreparedStatement ps;
-             ps = con.prepareStatement("SELECT id FROM 'check' WHERE date = ?");
-             ps.setString(1,nowstr);
-             ResultSet rs = ps.executeQuery();
-            
-             if (rs.next()) {
-                 idCheck = rs.getString("id");
-             }
-             
-             
-         } catch (SQLException ex) {
-             Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         int items = jTable2.getRowCount();
-        
-        for (int i = 0; i < items; i++) {
-            
-            try {
-                PreparedStatement ps;
-                ps = con.prepareStatement("INSERT INTO sale (fk_check, fk_store_product, price, discount, quantity, total) VALUES(?, ?, ?, ?, ?, ?)");
-                ps.setString(1, idCheck);
-                ps.setString(2, String.valueOf(jTable2.getValueAt(i, 0)));
-                ps.setString(3,String.valueOf(jTable2.getValueAt(i, 2)));
-                ps.setString(4,String.valueOf(jTable2.getValueAt(i, 3)));
-                ps.setString(5,String.valueOf(jTable2.getValueAt(i, 4)));
-                ps.setString(6,String.valueOf(jTable2.getValueAt(i, 5)));
-                ps.executeUpdate();
-            } catch (SQLException ex) {
-                Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            int existingQuantity = 0;
-            try {
-                PreparedStatement ps;
-                ResultSet rs;
-                ps = con.prepareStatement("SELECT quantity FROM store_product WHERE id = ?");
-                ps.setString(1, String.valueOf(jTable2.getValueAt(i, 0)));
-                rs = ps.executeQuery();
-                if (rs.next()) {
-                    existingQuantity = rs.getInt("quantity");
+                LocalDateTime now = LocalDateTime.now();
+                String nowstr = String.valueOf(now);
+                String idCheck = null;
+                try {
+                    con.close();
+                    con = MyConnection.getConnection();
+                    PreparedStatement ps;
+                    ps = con.prepareStatement("INSERT INTO 'check' (fk_employee, fk_client, date, total, vat) VALUES(?, ?, ?, ?, ?)");
+                    ps.setString(1,String.valueOf(id));
+                    ps.setString(2, clientCard);
+                    ps.setString(3, nowstr);
+                    ps.setString(4, jLabel6.getText());
+                    ps.setString(5,jLabel10.getText());
+                    int row = ps.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Check created");
+                    checkCreated = true;
+                    
+                    
+                } catch (SQLException ex) {
+                    Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            
-            
-            try {
-                PreparedStatement ps;
-                ps = con.prepareStatement("UPDATE store_product SET quantity = ? WHERE id = ?");
-                int quantity = Integer.parseInt(String.valueOf(jTable2.getValueAt(i, 4)));
-                int finalQuantity = existingQuantity - quantity;
                 
-                ps.setString(1,String.valueOf(finalQuantity));
-                ps.setString(2, String.valueOf(jTable2.getValueAt(i, 0)));
-                ps.executeUpdate();
+                try {
+                    PreparedStatement ps;
+                    ps = con.prepareStatement("SELECT id FROM 'check' WHERE date = ?");
+                    ps.setString(1,nowstr);
+                    ResultSet rs = ps.executeQuery();
+                    
+                    if (rs.next()) {
+                        idCheck = rs.getString("id");
+                    }
+                    
+                    
+                } catch (SQLException ex) {
+                    Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                int items = jTable2.getRowCount();
                 
-                
-                clientAdded = false;
-                clientCard = null;
-            } catch (SQLException ex) {
-                Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+                for (int i = 0; i < items; i++) {
+                    
+                    try {
+                        PreparedStatement ps;
+                        ps = con.prepareStatement("INSERT INTO sale (fk_check, fk_store_product, price, discount, quantity, total) VALUES(?, ?, ?, ?, ?, ?)");
+                        ps.setString(1, idCheck);
+                        ps.setString(2, String.valueOf(jTable2.getValueAt(i, 0)));
+                        ps.setString(3,String.valueOf(jTable2.getValueAt(i, 2)));
+                        ps.setString(4,String.valueOf(jTable2.getValueAt(i, 3)));
+                        ps.setString(5,String.valueOf(jTable2.getValueAt(i, 4)));
+                        ps.setString(6,String.valueOf(jTable2.getValueAt(i, 5)));
+                        ps.executeUpdate();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    int existingQuantity = 0;
+                    try {
+                        PreparedStatement ps;
+                        ResultSet rs;
+                        ps = con.prepareStatement("SELECT quantity FROM store_product WHERE id = ?");
+                        ps.setString(1, String.valueOf(jTable2.getValueAt(i, 0)));
+                        rs = ps.executeQuery();
+                        if (rs.next()) {
+                            existingQuantity = rs.getInt("quantity");
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                    
+                    
+                    try {
+                        PreparedStatement ps;
+                        ps = con.prepareStatement("UPDATE store_product SET quantity = ? WHERE id = ?");
+                        int quantity = Integer.parseInt(String.valueOf(jTable2.getValueAt(i, 4)));
+                        int finalQuantity = existingQuantity - quantity;
+                        
+                        ps.setString(1,String.valueOf(finalQuantity));
+                        ps.setString(2, String.valueOf(jTable2.getValueAt(i, 0)));
+                        ps.executeUpdate();
+                        
+                        
+                        clientAdded = false;
+                        clientCard = null;
+                    } catch (SQLException ex) {
+                        Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                 DefaultTableModel dm1 = (DefaultTableModel)jTable2.getModel();
                 while(dm1.getRowCount() > 0) {
                     dm1.removeRow(0);
@@ -743,9 +771,11 @@ public class CreateCheck extends javax.swing.JFrame {
                 while(dm2.getRowCount() > 0) {
                     dm2.removeRow(0);
                 }
+            }
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     }//GEN-LAST:event_makeCheckClick
 
     /**
