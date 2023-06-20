@@ -91,6 +91,7 @@ public class ManageChecksManager extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Manage checks");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 

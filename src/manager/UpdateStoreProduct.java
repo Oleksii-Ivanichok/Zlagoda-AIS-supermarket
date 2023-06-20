@@ -128,6 +128,7 @@ public class UpdateStoreProduct extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Update store product");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 

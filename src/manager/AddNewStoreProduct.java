@@ -144,6 +144,7 @@ public class AddNewStoreProduct extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Add new store product");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 

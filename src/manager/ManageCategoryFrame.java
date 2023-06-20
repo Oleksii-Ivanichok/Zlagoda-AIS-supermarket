@@ -80,6 +80,7 @@ public class ManageCategoryFrame extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Manage category");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N

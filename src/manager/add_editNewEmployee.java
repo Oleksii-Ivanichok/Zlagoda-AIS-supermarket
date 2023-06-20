@@ -133,6 +133,7 @@ public class add_editNewEmployee extends javax.swing.JFrame {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Add new employee");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 

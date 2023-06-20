@@ -77,6 +77,7 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Manage store products");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 

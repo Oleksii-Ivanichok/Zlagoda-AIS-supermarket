@@ -164,6 +164,7 @@ public class UpdateClient extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Update client");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
