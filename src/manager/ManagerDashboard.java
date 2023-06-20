@@ -116,7 +116,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Manager");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
         jLabel2.setText("Logout");
@@ -127,7 +127,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
             }
         });
 
-        cashierName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        cashierName.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         cashierName.setForeground(new java.awt.Color(255, 255, 255));
         cashierName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cashierName.setText("Surname Name");
@@ -141,26 +141,26 @@ public class ManagerDashboard extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cashierName, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                .addGap(187, 187, 187)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(169, 169, 169)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cashierName, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cashierName, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setFont(new java.awt.Font("NSimSun", 0, 12)); // NOI18N
 
-        ManageCategory.setBackground(new java.awt.Color(255, 255, 102));
-        ManageCategory.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        ManageCategory.setBackground(new java.awt.Color(255, 255, 153));
+        ManageCategory.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         ManageCategory.setText("Manage Category");
         ManageCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageCategory.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,8 +174,8 @@ public class ManagerDashboard extends javax.swing.JFrame {
             }
         });
 
-        ManageClients.setBackground(new java.awt.Color(255, 255, 102));
-        ManageClients.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        ManageClients.setBackground(new java.awt.Color(255, 255, 153));
+        ManageClients.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         ManageClients.setText("Manage Clients");
         ManageClients.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageClients.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -189,8 +189,8 @@ public class ManagerDashboard extends javax.swing.JFrame {
             }
         });
 
-        ManageEmployee.setBackground(new java.awt.Color(255, 255, 102));
-        ManageEmployee.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        ManageEmployee.setBackground(new java.awt.Color(255, 255, 153));
+        ManageEmployee.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         ManageEmployee.setText("Manage Employees");
         ManageEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,8 +204,8 @@ public class ManagerDashboard extends javax.swing.JFrame {
             }
         });
 
-        ManageChecks.setBackground(new java.awt.Color(255, 255, 102));
-        ManageChecks.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        ManageChecks.setBackground(new java.awt.Color(255, 255, 153));
+        ManageChecks.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         ManageChecks.setText("Manage Checks");
         ManageChecks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageChecks.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -219,8 +219,8 @@ public class ManagerDashboard extends javax.swing.JFrame {
             }
         });
 
-        ManageProducts1.setBackground(new java.awt.Color(255, 255, 102));
-        ManageProducts1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        ManageProducts1.setBackground(new java.awt.Color(255, 255, 153));
+        ManageProducts1.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         ManageProducts1.setText("Manage Store Products");
         ManageProducts1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageProducts1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,7 +234,8 @@ public class ManagerDashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 102));
+        jButton1.setBackground(new java.awt.Color(255, 255, 153));
+        jButton1.setFont(new java.awt.Font("Modern No. 20", 0, 18)); // NOI18N
         jButton1.setText("Print");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -262,106 +263,107 @@ public class ManagerDashboard extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ManageCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(ManageProducts1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(ManageClients, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
                 .addComponent(ManageChecks, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
                 .addComponent(ManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(14, 14, 14))
         );
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel3.setFont(new java.awt.Font("NSimSun", 0, 12)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("My Profile");
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel4.setText("Name:");
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel10.setText("Surname:");
 
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel11.setText("Patronymic:");
 
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel12.setText("Position:");
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel13.setText("Salary:");
 
-        jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel14.setText("Start of work date:");
 
-        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel15.setText("Birthday:");
 
-        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel16.setText("Phone:");
 
-        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel17.setText("City:");
 
-        jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel18.setText("Street:");
 
-        jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel19.setText("Postcode:");
 
-        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel20.setText("name");
 
-        jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel21.setText("surname");
 
-        jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel22.setText("patronymic");
 
-        jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel23.setText("position");
 
-        jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel24.setText("salary");
 
-        jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel25.setText("start date");
 
-        jLabel26.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel26.setText("birthday");
 
-        cashierPhone.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        cashierPhone.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         cashierPhone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cashierPhone.setText("phone");
 
-        jLabel28.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel28.setText("city");
 
-        jLabel29.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel29.setText("street");
 
-        jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel30.setText("postcode");
 
-        jLabel31.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel31.setText("Id:");
 
-        cashierId.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        cashierId.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         cashierId.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cashierId.setText("id");
 
@@ -374,11 +376,11 @@ public class ManagerDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addGap(3, 3, 3)
                         .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -479,7 +481,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(jLabel30))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
