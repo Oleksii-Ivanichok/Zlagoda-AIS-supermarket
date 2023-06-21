@@ -98,6 +98,11 @@ public class ManageStoreProducts extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable3);
 
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(255, 255, 153));
         jButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
@@ -417,6 +422,10 @@ public class ManageStoreProducts extends javax.swing.JFrame {
             Logger.getLogger(ManageStoreProducts.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

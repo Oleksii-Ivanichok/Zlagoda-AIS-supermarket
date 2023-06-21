@@ -80,10 +80,15 @@ public class ManageClients extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 153));
         jButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        jButton1.setText("Search by surname");
+        jButton1.setText("Search by name");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -378,6 +383,10 @@ public class ManageClients extends javax.swing.JFrame {
         Logger.getLogger(ManageClients.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
