@@ -75,6 +75,7 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        QueryGroupBy = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Manage store products");
@@ -189,6 +190,16 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
             }
         });
 
+        QueryGroupBy.setBackground(new java.awt.Color(255, 255, 153));
+        QueryGroupBy.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        QueryGroupBy.setText("Кількість товарів за категорією, і сума цих товарів");
+        QueryGroupBy.setToolTipText("");
+        QueryGroupBy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QueryGroupByMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -215,14 +226,15 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(QueryGroupBy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,7 +247,9 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton6))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(QueryGroupBy)
+                .addGap(9, 9, 9))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -491,6 +505,40 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void QueryGroupByMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QueryGroupByMouseClicked
+        String category = String.valueOf(jComboBox1.getSelectedItem());
+        PreparedStatement ps;
+        ResultSet rs;
+        
+        try {
+        
+                ps = con.prepareStatement("SELECT c.id, c.name, p.fk_category, total_quantity, total_sum\n" +
+"FROM category c\n" +
+"INNER JOIN (\n" +
+"    SELECT p.fk_category, SUM(sp.quantity) AS total_quantity, SUM(sp.price*sp.quantity) AS total_sum\n" +
+"    FROM product p\n" +
+"    INNER JOIN store_product sp ON p.id = sp.fk_product\n" +
+"    GROUP BY fk_category\n" +
+") p ON c.id = p.fk_category\n" +
+"WHERE c.name = ?");
+                ps.setString(1, category);
+                rs = ps.executeQuery();
+                JOptionPane.showMessageDialog(this, "id: "+rs.getString("id")
+                +"\ncatagory name:"+rs.getString("name")
+                +"\ntotal quantity: "+rs.getString("total_quantity")
+                +"\ntotal sum: "+rs.getString("total_sum")   
+                );
+
+             
+           
+   
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_QueryGroupByMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -542,6 +590,7 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton QueryGroupBy;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
