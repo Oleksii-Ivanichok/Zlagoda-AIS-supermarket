@@ -524,7 +524,7 @@ public class ManageEmployeesFrame extends javax.swing.JFrame {
        PreparedStatement ps;
     ResultSet rs;
     try {
-        int x = 2;
+        int x = 19;
         ps = con.prepareStatement("SELECT phone, city, street, zip\n" +
                                     "FROM Employee\n" +
                                     "WHERE NOT EXISTS (\n" +
@@ -542,8 +542,9 @@ public class ManageEmployeesFrame extends javax.swing.JFrame {
         DefaultTableModel dm = (DefaultTableModel)jTable3.getModel();
         dm.setRowCount(0); // Очистити таблицю перед вставкою нових даних
         
-        String resultAdress = rs.getString("city") + ", " + rs.getString("street") + ", " + rs.getString("zip");
+        
         while(rs.next()){
+            String resultAdress = rs.getString("city") + ", " + rs.getString("street") + ", " + rs.getString("zip");
             dm.addRow(new Object[]{ 
                         rs.getString("phone"),
                         resultAdress
