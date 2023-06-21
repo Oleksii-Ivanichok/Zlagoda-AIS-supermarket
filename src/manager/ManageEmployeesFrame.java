@@ -71,7 +71,7 @@ public class ManageEmployeesFrame extends javax.swing.JFrame {
         
         ps2 = con.prepareStatement("SELECT * "
                                 + "FROM employee "
-                                + "WHERE position = 'cashier'"
+                                + "WHERE position = 'manager'"
                                 + "ORDER BY surname ASC");
             rs2 = ps2.executeQuery();
             
