@@ -73,6 +73,7 @@
                               </Group>
                           </Group>
                       </Group>
+                      <Component id="QueryGroupBy" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -81,8 +82,8 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" pref="425" max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" min="-2" pref="378" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jComboBox1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -97,7 +98,9 @@
                       <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="QueryGroupBy" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -239,6 +242,21 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton6MouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="QueryGroupBy">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Monospaced" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x41a;&#x456;&#x43b;&#x44c;&#x43a;&#x456;&#x441;&#x442;&#x44c; &#x442;&#x43e;&#x432;&#x430;&#x440;&#x456;&#x432; &#x437;&#x430; &#x43a;&#x430;&#x442;&#x435;&#x433;&#x43e;&#x440;&#x456;&#x454;&#x44e;, &#x456; &#x441;&#x443;&#x43c;&#x430; &#x446;&#x438;&#x445; &#x442;&#x43e;&#x432;&#x430;&#x440;&#x456;&#x432;"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QueryGroupByMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
