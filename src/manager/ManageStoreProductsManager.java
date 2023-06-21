@@ -76,6 +76,7 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         QueryGroupBy = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Manage store products");
@@ -148,7 +149,7 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(255, 255, 153));
         jButton4.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        jButton4.setText("View All");
+        jButton4.setText("View all");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
@@ -200,6 +201,20 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setBackground(new java.awt.Color(255, 255, 153));
+        jButton7.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jButton7.setText("товари які є у чеках, сума яких > 300");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -207,56 +222,69 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(671, 671, 671))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(QueryGroupBy)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(QueryGroupBy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                                .addGap(261, 261, 261))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton7)
+                        .addComponent(jButton5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(QueryGroupBy)
-                .addGap(9, 9, 9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(QueryGroupBy)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1054, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,8 +312,8 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        DefaultTableModel dm = (DefaultTableModel) jTable3.getModel();
-        while (dm.getRowCount() > 0) {
+        DefaultTableModel dm = (DefaultTableModel)jTable3.getModel();
+        while(dm.getRowCount() > 0) {
             dm.removeRow(0);
         }
         String category = String.valueOf(jComboBox1.getSelectedItem());
@@ -295,60 +323,62 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
         try {
             if (category.equals("All") && !name.isEmpty()) {
                 ps = con.prepareStatement("SELECT store_product.id AS id, product.name AS name, price, quantity, category.name AS category_name, expiration_date "
-                        + "FROM store_product "
-                        + "INNER JOIN product ON store_product.fk_product = product.id "
-                        + "INNER JOIN category ON product.fk_category = category.id "
-                        + "WHERE instr(product.name, ?) > 0 "
+                                        + "FROM store_product "
+                                        + "INNER JOIN product ON store_product.fk_product = product.id "
+                                        + "INNER JOIN category ON product.fk_category = category.id "
+                                        + "WHERE instr(product.name, ?) > 0 "
                         + "ORDER BY name ASC");
-                ps.setString(1, name);
+                ps.setString(1,name);
                 rs = ps.executeQuery();
-            } else if (category.equals("All") && name.isEmpty()) {
+            }
+            else if (category.equals("All") && name.isEmpty()) {
                 ps = con.prepareStatement("SELECT store_product.id AS id, product.name AS name, price, quantity, category.name AS category_name, expiration_date "
-                        + "FROM store_product "
-                        + "INNER JOIN product ON store_product.fk_product = product.id "
-                        + "INNER JOIN category ON product.fk_category = category.id "
+                                        + "FROM store_product "
+                                        + "INNER JOIN product ON store_product.fk_product = product.id "
+                                        + "INNER JOIN category ON product.fk_category = category.id "
                         + "ORDER BY name ASC");
                 rs = ps.executeQuery();
-            } else if (!name.isEmpty()) {
+            }
+            else if (!name.isEmpty()){
                 ps = con.prepareStatement("SELECT store_product.id AS id, product.name AS name, price, quantity, category.name AS category_name, expiration_date "
                         + "FROM store_product "
                         + "INNER JOIN product ON store_product.fk_product = product.id "
                         + "INNER JOIN category ON product.fk_category = category.id "
                         + "WHERE instr(product.name, ?) > 0 AND category_name = ? "
                         + "ORDER BY name ASC");
-                ps.setString(1, name);
-                ps.setString(2, category);
+                ps.setString(1,name);
+                ps.setString(2,category);
                 rs = ps.executeQuery();
-            } else {
+            }
+            else {
                 ps = con.prepareStatement("SELECT store_product.id AS id, product.name AS name, price, quantity, category.name AS category_name, expiration_date "
                         + "FROM store_product "
                         + "INNER JOIN product ON store_product.fk_product = product.id "
                         + "INNER JOIN category ON product.fk_category = category.id "
                         + "WHERE category_name = ? "
                         + "ORDER BY name ASC");
-                ps.setString(1, category);
+                ps.setString(1,category);
                 rs = ps.executeQuery();
             }
             LocalDate nowDate = LocalDate.now();
             String now = String.valueOf(nowDate);
-            while (rs.next()) {
+            while(rs.next()) {
                 int productDiscount = 0;
                 if (rs.getString("expiration_date").equals(now)) {
                     productDiscount = 20;
                 }
-                dm.addRow(new Object[]{rs.getString("id"),
-                    rs.getString("name"),
+                dm.addRow(new Object[]{rs.getString("id"), 
+                    rs.getString("name"), 
                     rs.getString("price"),
-                    String.valueOf(productDiscount),
-                    rs.getString("quantity"),
+                    String.valueOf(productDiscount), 
+                    rs.getString("quantity"), 
                     rs.getString("category_name"),
                     rs.getString("expiration_date")});
             }
-
+            
         } catch (SQLException ex) {
             Logger.getLogger(CreateCheck.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -539,6 +569,56 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
 
     }//GEN-LAST:event_QueryGroupByMouseClicked
 
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+     DefaultTableModel dm = (DefaultTableModel) jTable3.getModel();
+        while (dm.getRowCount() > 0) {
+            dm.removeRow(0);
+        }
+
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+
+            ps = con.prepareStatement("SELECT p.id AS id, sp.id, sp.price AS price, sp.quantity AS quantity, p.name AS name\n" +
+"FROM store_product sp LEFT JOIN product p ON sp.fk_product = p.id\n" +
+"	WHERE NOT EXISTS( SELECT * \n" +
+"	FROM `check` r\n" +
+"        WHERE (total > 300)\n" +
+"            AND NOT EXISTS(\n" +
+"                SELECT *\n" +
+"                FROM sale s\n" +
+"                WHERE s.id = sp.id\n" +
+"                    AND s.fk_check = r.id\n" +
+"           )\n" +
+")");
+
+            rs = ps.executeQuery();
+
+            LocalDate nowDate = LocalDate.now();
+            String now = String.valueOf(nowDate);
+            while (rs.next()) {
+                int productDiscount = 0;
+                if (rs.getString("expiration_date").equals(now)) {
+                    productDiscount = 20;
+                }
+                dm.addRow(new Object[]{rs.getString("id"),
+                    rs.getString("name"),
+                    rs.getString("price"),
+                    String.valueOf(productDiscount),
+                    rs.getString("quantity"),
+                    rs.getString("category_name"),
+                    rs.getString("expiration_date")});
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageStoreProductsManager.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -597,6 +677,7 @@ public class ManageStoreProductsManager extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
